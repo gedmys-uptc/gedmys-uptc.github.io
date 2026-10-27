@@ -209,7 +209,7 @@ dialog button{position:absolute;top:-14px;right:-14px;width:36px;height:36px;bor
 .doc p{margin:0;color:var(--gris);font-size:.95rem}
 .estado{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;border-radius:99px}
 .doc[data-estado="pronto"] .estado{background:var(--suave);color:var(--ocre)}
-.doc[data-estado="pronto"] .estado::after{content:"Disponible después del 22 de octubre"}
+.doc[data-estado="pronto"] .estado::after{content:"Próximamente"}
 .doc[data-estado="listo"] .estado{background:#E3F2E6;color:#1E6B34}
 .doc[data-estado="listo"] .estado::after{content:"Disponible"}
 .doc[data-estado="pronto"] .doc-btn{background:transparent;border-color:var(--linea);color:var(--grisclaro);pointer-events:none}
@@ -260,6 +260,41 @@ footer{background:#0A0904;color:#9f977f;font-size:.86rem}
 footer .wrap{padding-block:34px;display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-between;align-items:center}
 footer img{height:44px;width:auto;background:#fff;border-radius:6px;padding:5px 8px}
 footer .fl{display:flex;gap:14px;align-items:center}
+
+
+/* ================= Después del evento ================= */
+.h-ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.ganadores{list-style:none;margin:4px 0 0;padding:0;display:grid;gap:8px;border-top:1px solid rgba(255,204,0,.2);padding-top:14px}
+.ganadores li{display:grid;grid-template-columns:30px minmax(0,1fr);gap:12px;align-items:start}
+.ganadores .md{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:900;color:var(--tinta);font-size:1rem}
+.ganadores .g1 .md{background:var(--oro)}.ganadores .g2 .md{background:#D9D3C2}.ganadores .g3 .md{background:#C99A5B}
+.ganadores b{display:block;color:#fff;font-size:1rem;line-height:1.3;padding-top:4px}
+.ganadores .gr{display:inline-block;font-style:normal;font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--oro);border:1px solid rgba(255,204,0,.4);border-radius:99px;padding:1px 8px;margin:4px 0 2px}
+.ganadores .gr[hidden]{display:none}
+.ganadores span{display:block;font-size:.84rem;color:#cfc8b3;font-style:italic;line-height:1.35;margin-top:2px}
+.premiacion .btns{gap:10px}
+.gal{background:var(--papel)}
+.g-filtros{display:flex;flex-wrap:wrap;gap:8px;margin:-16px 0 26px}
+.chip{font:500 .9rem var(--texto);padding:8px 16px;border-radius:99px;border:1px solid var(--linea);background:var(--blanco);color:var(--tinta);cursor:pointer;transition:background .2s,border-color .2s}
+.chip:hover{border-color:var(--tinta)}
+.chip.on{background:var(--tinta);color:var(--oro);border-color:var(--tinta)}
+.g-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.g-grid .g-item{margin:0;aspect-ratio:4/3}
+.g-grid .g-item img{width:100%;height:100%;object-fit:cover}
+.g-item{break-inside:avoid;margin:0 0 14px;display:block;width:100%;padding:0;border:0;background:var(--suave);border-radius:12px;overflow:hidden;cursor:zoom-in;position:relative;text-align:left}
+.g-item img{display:block;width:100%;height:auto;transition:transform .6s ease}
+.g-item:hover img{transform:scale(1.03)}
+.g-item figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 14px 12px;color:#fff;font-size:.84rem;line-height:1.35;background:linear-gradient(transparent,rgba(10,9,4,.82));opacity:0;transition:opacity .25s}
+.g-item:hover figcaption,.g-item:focus-visible figcaption{opacity:1}
+dialog.foto{max-width:min(94vw,1280px);width:auto}
+dialog.foto img{max-height:80vh;width:auto;max-width:100%;margin:0 auto;border-radius:10px}
+dialog.foto .pie{color:#e9e4d4;text-align:center;font-size:.92rem;margin:12px 48px 0}
+dialog.foto .nav-f{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;font-size:1.4rem;cursor:pointer}
+dialog.foto .nav-f:hover{background:var(--oro);color:var(--tinta)}
+dialog.foto .ant{left:12px;right:auto}dialog.foto .sig{right:12px;left:auto}
+dialog.foto .nav-f{background:rgba(18,16,8,.6);color:#fff;font-size:1.6rem;line-height:1}
+dialog.foto #vf-x{top:10px;right:10px}
+@media (max-width:640px){.g-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.g-item figcaption{display:none}.h-ctas .btn{padding:10px 16px;font-size:.9rem}}
 
 /* ================= Responsive ================= */
 @media (max-width:980px){
@@ -312,7 +347,9 @@ footer .fl{display:flex;gap:14px;align-items:center}
     <a class="brand" href="#inicio"><span class="sig">∂/∂t</span><span class="tx"><b>UPTC · 2026</b>IV Encuentro de Semilleros</span></a>
     <nav class="menu" aria-label="Secciones">
       <a href="#programacion">Programación</a>
-      <a href="#torneos">Torneos y pósteres</a>
+      <a href="#torneos">Ganadores</a>
+      <a href="#galeria">Galería</a>
+      <a href="#memorias">Certificados</a>
       <a href="#organiza">Organiza</a>
       <a href="#lugar">Lugar</a>
     </nav>
@@ -330,7 +367,8 @@ footer .fl{display:flex;gap:14px;align-items:center}
         <img src="data:image/jpeg;base64,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" alt="Encuentro de Semilleros Matemáticos UPTC">
       </div>
       <h1><span class="ln"><span class="num">IV</span> Encuentro</span><span class="ln">de Semilleros de</span><span class="ln">Investigación de</span><span class="ln">Matemáticas</span></h1>
-      <p class="bajada">Los semilleros y grupos de investigación en matemáticas, estadística y sus aplicaciones de la UPTC se reúnen un día para mostrar su trabajo, escucharse y competir con ingenio.</p>
+      <p class="bajada">Los semilleros y grupos de investigación en matemáticas, estadística y sus aplicaciones de la UPTC se reunieron un día para mostrar su trabajo, escucharse y competir con ingenio. Gracias a todas las personas que lo hicieron posible.</p>
+      <div class="h-ctas"><a class="btn" href="#torneos">Ver ganadores</a><a class="btn sec" href="#galeria">Galería</a><a class="btn sec" href="verificar/index.html">Verificar certificado</a></div>
     </div>
     <aside class="ficha" aria-label="Fecha y lugar">
       <div class="fecha"><span class="dd">22</span><span class="mm"><b>Octubre</b>2026<br>7:30 am – 6:15 pm</span></div>
@@ -486,7 +524,7 @@ footer .fl{display:flex;gap:14px;align-items:center}
           <h3>De la formación investigativa al legado de nuevas generaciones</h3>
           <div class="panel">
             <div class="quien"><span class="av">LR</span><div><b>Dr. Leonardo Rendón Arbeláez</b><span>Profesor Titular · Universidad Nacional de Colombia</span></div></div>
-            <div class="quien"><span class="av">JC</span><div><b>Dr.(c) Jonhatan Castillo Barajas</b><span>Estudiante de doctorado · Universidad Nacional de Colombia</span><b></b><span>Profesor · Universidad Sergio Arboleda</span></b></div></div>
+            <div class="quien"><span class="av">JC</span><div><b>Dr.(c) Jonhatan Castillo Barajas</b><span>Estudiante de doctorado · Universidad Nacional de Colombia<br>Profesor · Universidad Sergio Arboleda</span></div></div>
             <div class="quien"><span class="av">AF</span><div><b>Dra. Ángela Fuquen</b><span>Profesora · Universidad Santo Tomás, Seccional Tunja</span></div></div>
             <div class="quien"><span class="av">JJ</span><div><b>Dr. Juan Carlos Juajibioy</b><span>Profesor Titular · Universidad Pedagógica y Tecnológica de Colombia, Tunja</span></div></div>
             <div class="quien"><span class="av">ZS</span><div><b>Dr. Zagalo Suárez</b><span>Profesor Titular · Universidad Pedagógica y Tecnológica de Colombia, Tunja</span></div></div>
@@ -563,8 +601,8 @@ footer .fl{display:flex;gap:14px;align-items:center}
 <section class="torneos" id="torneos">
   <div class="wrap">
     <div class="cab">
-      <div><div class="eyebrow">Premiación</div><h2>Torneos y concurso de pósteres</h2></div>
-      <p>Los torneos se realizan de 2:00 a 3:00 pm y el concurso de pósteres de 3:00 a 5:00 pm. Los ganadores se anunciarán en la premiación y se publicarán en esta sección.</p>
+      <div><div class="eyebrow">Resultados · Premiación</div><h2>Ganadores de los torneos y del concurso de pósteres</h2></div>
+      <p>Agradecemos a todas las personas participantes, entre ellas estudiantes de las ingenierías y de las licenciaturas en Matemáticas y en Biología, y felicitamos a quienes ocuparon los tres primeros lugares.</p>
     </div>
     <div class="tgrid">
       <article class="t-card">
@@ -577,7 +615,7 @@ footer .fl{display:flex;gap:14px;align-items:center}
             <div class="esc e2"><div class="pr">$50.000</div><div class="bl">2</div></div>
             <div class="esc e3"><div class="pr">Obsequio</div><div class="bl">3</div></div>
           </div>
-          <div class="gan">Ganadores: por anunciar</div>
+          <ol class="ganadores"><li class="g1"><span class="md" aria-label="Puesto 1">1</span><div><b>Gustavo Martínez</b><em class="gr">Grupo GAMMA · Estadística</em></div></li><li class="g2"><span class="md" aria-label="Puesto 2">2</span><div><b>James Gómez</b><em class="gr">Grupo GA2 · Álgebra y Análisis</em></div></li><li class="g3"><span class="md" aria-label="Puesto 3">3</span><div><b>Thomas Torres</b><em class="gr">Grupo GA2 · Álgebra y Análisis</em></div></li></ol>
         </div>
       </article>
       <article class="t-card">
@@ -590,7 +628,7 @@ footer .fl{display:flex;gap:14px;align-items:center}
             <div class="esc e2"><div class="pr">$50.000</div><div class="bl">2</div></div>
             <div class="esc e3"><div class="pr">Obsequio</div><div class="bl">3</div></div>
           </div>
-          <div class="gan">Ganadores: por anunciar</div>
+          <ol class="ganadores"><li class="g1"><span class="md" aria-label="Puesto 1">1</span><div><b>Nicolás Rodríguez</b><em class="gr">Grupo GTNyGA · Teoría de los Números</em></div></li><li class="g2"><span class="md" aria-label="Puesto 2">2</span><div><b>Camilo González</b><em class="gr">Grupo GTNyGA · Teoría de los Números</em></div></li><li class="g3"><span class="md" aria-label="Puesto 3">3</span><div><b>Thomas Torres</b><em class="gr">Grupo GA2 · Álgebra y Análisis</em></div></li></ol>
         </div>
       </article>
       <article class="t-card">
@@ -603,30 +641,47 @@ footer .fl{display:flex;gap:14px;align-items:center}
             <div class="esc e2"><div class="pr">Calculadora científica</div><div class="bl">2</div></div>
             <div class="esc e3"><div class="pr">Calculadora científica</div><div class="bl">3</div></div>
           </div>
-          <div class="gan">Ganadores: por anunciar</div>
+          <ol class="ganadores"><li class="g1"><span class="md" aria-label="Puesto 1">1</span><div><b>Duván Leonardo Chivatá</b><em class="gr">Semillero GEDMyS</em><span>«Solución débil al problema de Riemann para la ecuación de Burgers»</span></div></li><li class="g2"><span class="md" aria-label="Puesto 2">2</span><div><b>Ángela Yereth Burbano</b><em class="gr">Semillero GICI</em><span>«Temperatura sin filtro antialias: muestreo coherente y FIR en FPGA»</span></div></li><li class="g3"><span class="md" aria-label="Puesto 3">3</span><div><b>Yeison Javier Aragón y Margoth Adriana Valdivieso</b><em class="gr">Semillero GICI</em><span>«De las figuras a los argumentos: geometría y estadística en la educación media rural»</span></div></li></ol>
         </div>
       </article>
     </div>
     <div class="premiacion">
-      <div><b>Premiación · 5:00 pm</b><span>Auditorio Teatro Fausto. Los ganadores y sus fotografías se publicarán en esta sección.</span></div>
-      <a class="btn" href="#programacion">Ver programación</a>
+      <div><b>¡Felicitaciones a todos y todas!</b><span>Los certificados de participación y de los ganadores incluyen un código de verificación.</span></div>
+      <div class="btns"><a class="btn" href="#galeria">Ver galería</a><a class="btn sec" href="verificar/index.html">Verificar certificado</a></div>
     </div>
-    <div class="galeria" aria-label="Galería (próximamente)">
-      <div class="ph">Fotografías de la premiación</div>
-      <div class="ph">Ganadores de ajedrez</div>
-      <div class="ph">Ganadores de cubo Rubik</div>
-      <div class="ph">Ganadores del concurso de pósteres</div>
+  </div>
+</section>
+
+<!-- ============================ GALERÍA ============================ -->
+<!-- Para agregar fotos: guárdelas en fotos/ (versión grande y versión -m más liviana) y añádalas a la lista FOTOS al final de la página. -->
+<section class="gal" id="galeria">
+  <div class="wrap">
+    <div class="cab">
+      <div><div class="eyebrow">Galería</div><h2>Así vivimos el Encuentro</h2></div>
+      <p>Foro, homenaje, ponencias, torneos, concurso de pósteres y premiación del 22 de octubre de 2026. Seleccione una fotografía para verla en tamaño completo.</p>
     </div>
+    <div class="g-filtros" role="group" aria-label="Filtrar fotografías">
+      <button type="button" class="chip" data-cat="foro">Foro</button>
+      <button type="button" class="chip" data-cat="homenaje">Homenaje</button>
+      <button type="button" class="chip" data-cat="ponencias">Ponencias</button>
+      <button type="button" class="chip" data-cat="ajedrez">Ajedrez</button>
+      <button type="button" class="chip" data-cat="rubik">Cubo Rubik</button>
+      <button type="button" class="chip" data-cat="posteres">Pósteres</button>
+      <button type="button" class="chip" data-cat="premiacion">Premiación</button>
+      <button type="button" class="chip" data-cat="grupal">Foto grupal</button>
+      <button type="button" class="chip on" data-cat="">Todas</button>
+    </div>
+    <div class="g-grid" id="g-grid"></div>
   </div>
 </section>
 
 <!-- ============================ MEMORIAS ============================ -->
 <!-- Para publicar un documento: cambie data-estado="pronto" por "listo" y ponga el enlace de Drive en href. -->
-<section class="memorias" id="memorias" hidden>
+<section class="memorias" id="memorias">
   <div class="wrap">
     <div class="cab">
-      <div><div class="eyebrow">Memorias</div><h2>Documentos del Encuentro</h2></div>
-      <p>Los documentos del Encuentro se publicarán en esta sección. Cada uno se abre en una pestaña nueva para consultarlo o descargarlo.</p>
+      <div><div class="eyebrow">Memorias</div><h2>Documentos y certificados</h2></div>
+      <p>Los certificados se envían por correo electrónico. Cada uno tiene un código de verificación y un código QR con los que cualquier persona puede comprobar su autenticidad.</p>
     </div>
     <div class="docs">
       <article class="doc" data-estado="pronto">
@@ -638,23 +693,23 @@ footer .fl{display:flex;gap:14px;align-items:center}
         </div>
         <a class="btn doc-btn" href="#" target="_blank" rel="noopener">Abrir libro (PDF)</a>
       </article>
-      <article class="doc" data-estado="pronto">
+      <article class="doc" data-estado="listo">
         <div class="doc-ico"><svg viewBox="0 0 48 40" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="2" width="44" height="30" rx="2"/><path d="M10 11h28M14 18h20"/><circle cx="36" cy="30" r="6"/><path d="M33 35l-2 4 5-2 5 2-2-4"/></svg></div>
         <div class="doc-tx">
           <span class="estado"></span>
-          <h3>Certificados</h3>
-          <p>Certificados de ponentes, participantes de los semilleros y ganadores de los concursos.</p>
+          <h3>Verificación de certificados</h3>
+          <p>Escriba el código de verificación del certificado, o escanee su código QR, para comprobar que fue expedido por el Encuentro.</p>
         </div>
-        <a class="btn doc-btn" href="#" target="_blank" rel="noopener">Ver certificados</a>
+        <a class="btn doc-btn" href="verificar/index.html">Verificar certificado</a>
       </article>
-      <article class="doc" data-estado="pronto">
+      <article class="doc" data-estado="listo">
         <div class="doc-ico"><svg viewBox="0 0 48 40" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="6" width="44" height="32" rx="2"/><circle cx="15" cy="17" r="4"/><path d="M2 32l13-10 9 7 8-6 14 9"/><path d="M12 6l3-4h18l3 4"/></svg></div>
         <div class="doc-tx">
           <span class="estado"></span>
           <h3>Galería de fotografías</h3>
           <p>Registro fotográfico de las ponencias, los torneos, el concurso de pósteres y la premiación.</p>
         </div>
-        <a class="btn doc-btn" href="#" target="_blank" rel="noopener">Ver galería</a>
+        <a class="btn doc-btn" href="#galeria">Ver galería</a>
       </article>
     </div>
   </div>
@@ -726,6 +781,7 @@ footer .fl{display:flex;gap:14px;align-items:center}
   </div>
 </footer>
 
+<dialog id="visor-f" class="foto" aria-label="Fotografía ampliada"><img id="vf-img" alt=""><p class="pie" id="vf-pie"></p><button type="button" class="nav-f ant" id="vf-ant" aria-label="Fotografía anterior">‹</button><button type="button" class="nav-f sig" id="vf-sig" aria-label="Fotografía siguiente">›</button><button type="button" id="vf-x" aria-label="Cerrar">×</button></dialog>
 <dialog id="visor"><img id="visor-img" alt="Afiche ampliado"><button type="button" id="cerrar" aria-label="Cerrar">×</button></dialog>
 
 <script>
@@ -874,6 +930,34 @@ footer .fl{display:flex;gap:14px;align-items:center}
     a.setAttribute('aria-disabled','true'); a.setAttribute('tabindex','-1');
     a.addEventListener('click', function(e){ e.preventDefault(); });
   });
+
+
+  /* ---------- Galería ---------- */
+  var FOTOS = [{"f": "01-foro", "c": "foro", "t": "Foro Horizontes Matemáticos: de la formación investigativa al legado de nuevas generaciones", "w": 1600, "h": 1068}, {"f": "01-foro-b", "c": "foro", "t": "Foro Horizontes Matemáticos: panelistas invitados", "w": 1600, "h": 1068}, {"f": "01-foro-c", "c": "foro", "t": "Panelistas del Foro Horizontes Matemáticos", "w": 1600, "h": 1068}, {"f": "02-homenaje", "c": "homenaje", "t": "Homenaje al profesor Leonardo Rendón Arbeláez: «Su obra está en esta sala»", "w": 1600, "h": 1066}, {"f": "03-homenaje", "c": "homenaje", "t": "Homenaje al profesor Leonardo Rendón Arbeláez", "w": 1600, "h": 1066}, {"f": "04-ponencias", "c": "ponencias", "t": "Plenaria: ¿Qué esconden los dígitos de un número?", "w": 1600, "h": 1066}, {"f": "05-ponencias", "c": "ponencias", "t": "Ponencia: introducción a los números p-ádicos", "w": 1600, "h": 1066}, {"f": "06-ponencias", "c": "ponencias", "t": "Ponencia: soluciones globales de las ecuaciones de Navier–Stokes", "w": 1600, "h": 1066}, {"f": "07-ajedrez", "c": "ajedrez", "t": "Tableros listos para el torneo relámpago", "w": 1600, "h": 1066}, {"f": "08-ajedrez", "c": "ajedrez", "t": "Torneo de ajedrez relámpago", "w": 1600, "h": 1066}, {"f": "09-ajedrez", "c": "ajedrez", "t": "Concentración en el torneo de ajedrez", "w": 1600, "h": 1066}, {"f": "10-ajedrez", "c": "ajedrez", "t": "Partidas simultáneas del torneo de ajedrez", "w": 1600, "h": 1066}, {"f": "11-rubik", "c": "rubik", "t": "Torneo de cubo Rubik", "w": 1600, "h": 1066}, {"f": "12-rubik", "c": "rubik", "t": "Torneo de cubo Rubik: armado contra reloj", "w": 1600, "h": 1066}, {"f": "13-rubik", "c": "rubik", "t": "Torneo de cubo Rubik", "w": 1600, "h": 1066}, {"f": "14-posteres", "c": "posteres", "t": "Póster ganador del primer puesto: solución débil al problema de Riemann para la ecuación de Burgers", "w": 1600, "h": 1066}, {"f": "15-posteres", "c": "posteres", "t": "Póster «Estructura de grupo en curvas elípticas» (P09)", "w": 1600, "h": 1066}, {"f": "16-posteres", "c": "posteres", "t": "Evaluación de los pósteres de los semilleros", "w": 1600, "h": 1066}, {"f": "17-posteres", "c": "posteres", "t": "Exhibición de pósteres en el Teatro Fausto", "w": 1600, "h": 1066}, {"f": "18-posteres", "c": "posteres", "t": "Póster del tercer puesto: geometría y estadística en la educación media rural", "w": 1600, "h": 1066}, {"f": "19-posteres", "c": "posteres", "t": "Póster «Características de ℚₚ»", "w": 1600, "h": 1066}, {"f": "20-posteres", "c": "posteres", "t": "Presentación de pósteres ante los jurados", "w": 1600, "h": 1066}, {"f": "21-premiacion", "c": "premiacion", "t": "Ganadores de los torneos y del concurso de pósteres", "w": 1600, "h": 1066}, {"f": "22-premiacion", "c": "premiacion", "t": "Premiación de los torneos y del concurso de pósteres", "w": 1600, "h": 1066}, {"f": "23-grupal", "c": "grupal", "t": "Foto grupal de participantes, ponentes e invitados del IV Encuentro", "w": 1600, "h": 1066}];
+  var grid = document.getElementById('g-grid'), vf = document.getElementById('visor-f'), vfi = document.getElementById('vf-img'), vfp = document.getElementById('vf-pie');
+  var visibles = FOTOS, actual = 0;
+  function pintaG(cat){
+    visibles = FOTOS.filter(function(f){ return !cat || f.c === cat; });
+    grid.innerHTML = visibles.map(function(f,i){
+      return '<button type="button" class="g-item" data-i="'+i+'"><img src="fotos/'+f.f+'-m.jpg" alt="'+f.t.replace(/"/g,'&quot;')+'" width="'+f.w+'" height="'+f.h+'" loading="lazy"><figcaption>'+f.t+'</figcaption></button>';
+    }).join('');
+    grid.querySelectorAll('.g-item').forEach(function(b){ b.addEventListener('click', function(){ abreF(+b.dataset.i); }); });
+  }
+  function abreF(i){
+    actual = (i + visibles.length) % visibles.length;
+    var f = visibles[actual]; vfi.src = 'fotos/'+f.f+'.jpg'; vfi.alt = f.t; vfp.textContent = f.t;
+    if (!vf.open && vf.showModal) vf.showModal();
+  }
+  document.getElementById('vf-ant').addEventListener('click', function(){ abreF(actual-1); });
+  document.getElementById('vf-sig').addEventListener('click', function(){ abreF(actual+1); });
+  document.getElementById('vf-x').addEventListener('click', function(){ vf.close(); });
+  vf.addEventListener('click', function(e){ if (e.target === vf) vf.close(); });
+  vf.addEventListener('keydown', function(e){ if (e.key==='ArrowLeft') abreF(actual-1); if (e.key==='ArrowRight') abreF(actual+1); });
+  document.querySelectorAll('.g-filtros .chip').forEach(function(c){ c.addEventListener('click', function(){
+    document.querySelectorAll('.g-filtros .chip').forEach(function(x){ x.classList.toggle('on', x===c); });
+    pintaG(c.dataset.cat);
+  }); });
+  pintaG('');
 
   /* ---------- Copiar correo ---------- */
   var btn = document.getElementById('copiar'), mail = document.getElementById('mail');

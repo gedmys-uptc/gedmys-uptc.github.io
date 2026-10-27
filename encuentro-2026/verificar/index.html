@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Verificar certificado · IV Encuentro de Semilleros de Matemáticas</title>
+<meta name="description" content="Verificación de los certificados del IV Encuentro de Semilleros de Investigación de Matemáticas, UPTC, 22 de octubre de 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=Fira+Sans:wght@300;400;500;600;700&family=Fira+Mono:wght@500&display=swap">
+<style>
+:root{
+  --tinta:#121008; --tinta2:#1D1A10; --papel:#FBF8EE; --blanco:#FFFFFF;
+  --oro:#FFCC00; --ocre:#7E6100; --linea:#E6DEC4; --suave:#F3EDD8; --gris:#5C5644; --grisclaro:#B9B19A;
+  --verde:#1E6B34; --rojo:#B3261E;
+  --display:'Playfair Display', Georgia, 'Times New Roman', serif;
+  --texto:'Fira Sans', 'Segoe UI', Roboto, Arial, sans-serif;
+  --mono:'Fira Mono', ui-monospace, Menlo, Consolas, monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--papel);color:var(--tinta);font-family:var(--texto);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));width:100%}
+h1,h2{font-family:var(--display);margin:0;font-weight:800;text-wrap:balance}
+:focus-visible{outline:3px solid var(--oro);outline-offset:3px;border-radius:2px}
+.nav{background:var(--tinta);border-bottom:1px solid rgba(255,204,0,.14)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
+.brand .sig{font-family:var(--display);font-style:italic;font-size:1.35rem;color:var(--oro);line-height:1}
+.brand .tx{font-size:.82rem;line-height:1.15;font-weight:500}
+.brand .tx b{display:block;font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem;color:var(--grisclaro)}
+.volver{color:#e9e4d4;text-decoration:none;font-size:.9rem;padding:8px 14px;border-radius:99px;border:1px solid rgba(255,255,255,.2)}
+.volver:hover{border-color:var(--oro);color:var(--oro)}
+.cab{background:var(--tinta);color:#fff;padding:56px 0 64px}
+.eyebrow{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--oro);display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:28px;height:2px;background:currentColor}
+.cab h1{font-size:clamp(2.4rem,6vw,4.2rem);line-height:1;margin-top:16px}
+.cab h1 em{color:var(--oro)}
+.cab p{max-width:40em;color:#d8d2bf;margin:20px 0 0;font-weight:300;font-size:1.08rem}
+main{flex:1}
+.cuerpo{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:32px;align-items:start;margin-top:-36px;padding-bottom:80px}
+.form{background:var(--blanco);border:1px solid var(--linea);border-radius:16px;padding:26px;box-shadow:0 20px 40px -30px rgba(18,16,8,.5)}
+label{display:block;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ocre);margin-bottom:10px}
+.in{display:flex;flex-wrap:wrap;gap:10px}
+input{flex:1 1 190px;min-width:0;font-family:var(--mono);font-size:1.45rem;letter-spacing:.12em;text-transform:uppercase;padding:12px 16px;border:2px solid var(--linea);border-radius:12px;background:var(--papel);color:var(--tinta)}
+input:focus{outline:none;border-color:var(--tinta)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 .98rem var(--texto);padding:12px 22px;border-radius:99px;border:2px solid var(--tinta);background:var(--tinta);color:var(--oro);cursor:pointer}
+.btn:hover{background:var(--oro);color:var(--tinta);border-color:var(--oro)}
+.ayuda{font-size:.88rem;color:var(--gris);margin:12px 0 0}
+.res{min-height:20px}
+.card{display:grid;grid-template-columns:54px minmax(0,1fr);gap:18px;border-radius:16px;padding:26px;border:1px solid var(--linea);background:var(--blanco)}
+.card .ic{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;color:#fff}
+.card.ok{border:2px solid var(--oro);box-shadow:0 20px 40px -30px rgba(18,16,8,.5)}
+.card.ok .ic{background:var(--verde)}
+.card.no .ic{background:var(--rojo)}
+.card .et{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--verde)}
+.card h2{font-size:clamp(1.7rem,3.4vw,2.4rem);line-height:1.08;margin:6px 0 4px}
+.card.no h2{font-size:1.6rem;margin-top:0}
+.card p{margin:0;color:var(--gris)}
+dl{margin:16px 0 0;border-top:1px solid var(--linea)}
+dl div{display:grid;grid-template-columns:140px minmax(0,1fr);gap:12px;padding:9px 0;border-bottom:1px solid var(--linea)}
+dt{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--grisclaro);padding-top:3px}
+dd{margin:0}
+dd.cod{font-family:var(--mono);letter-spacing:.06em}
+.nota{font-size:.86rem;color:var(--gris);margin-top:14px}
+footer{background:#0A0904;color:#9f977f;font-size:.86rem}
+footer .wrap{padding-block:28px;display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between}
+@media (max-width:860px){.cuerpo{grid-template-columns:1fr}}
+@media (max-width:560px){.brand .tx{display:none}.card{grid-template-columns:1fr}dl div{grid-template-columns:1fr;gap:2px}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="../index.html"><span class="sig">∂/∂t</span><span class="tx"><b>UPTC · 2026</b>IV Encuentro de Semilleros</span></a>
+    <a class="volver" href="../index.html">← Volver al Encuentro</a>
+  </div>
+</header>
+<main>
+  <section class="cab">
+    <div class="wrap">
+      <div class="eyebrow">IV Encuentro de Semilleros de Investigación de Matemáticas</div>
+      <h1>Verificar <em>certificado</em></h1>
+      <p>Compruebe que un certificado fue expedido por el Encuentro. Escriba el código de verificación que aparece en la esquina inferior derecha del certificado, o escanee su código QR.</p>
+    </div>
+  </section>
+  <div class="wrap cuerpo">
+    <form class="form" id="form" autocomplete="off">
+      <label for="c">Código de verificación</label>
+      <div class="in">
+        <input id="c" name="c" type="text" spellcheck="false" placeholder="XXXX-XXXX" maxlength="12" aria-describedby="ayuda">
+        <button class="btn" type="submit">Verificar</button>
+      </div>
+      <p class="ayuda" id="ayuda">Ocho caracteres, letras y números. No importa si escribe en mayúsculas o minúsculas, ni el guion.</p>
+    </form>
+    <div class="res" id="res" aria-live="polite"></div>
+  </div>
+</main>
+<footer>
+  <div class="wrap">
+    <span>IV Encuentro de Semilleros de Investigación de Matemáticas · UPTC, Tunja, 22 de octubre de 2026</span>
+    <span>Consultas: gedmys@uptc.edu.co</span>
+  </div>
+</footer>
+<script>
+(function(){
+  var REG = null, res = document.getElementById('res');
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+  function normal(c){ return String(c||'').toUpperCase().replace(/[^A-Z0-9]/g,''); }
+  function bonito(n){ return n.length===8 ? n.slice(0,4)+'-'+n.slice(4) : n; }
+  async function sha(s){ return new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s))); }
+  function hex(b){ return Array.prototype.map.call(b,function(x){ return ('0'+x.toString(16)).slice(-2); }).join(''); }
+  function carga(){
+    if (REG) return Promise.resolve(REG);
+    return fetch('registros.json', {cache:'no-store'}).then(function(r){ if (!r.ok) throw 0; return r.json(); })
+      .then(function(j){ REG = j.registros || {}; return REG; });
+  }
+  async function abrir(cod){
+    var n = normal(cod), reg = await carga();
+    var c = reg[hex(await sha('gedmys-id:'+n)).slice(0,32)];
+    if (!c) return null;
+    var bin = atob(c), datos = new Uint8Array(bin.length), flujo = [], i = 0;
+    while (flujo.length < bin.length){ flujo = flujo.concat(Array.from(await sha('gedmys-key:'+n+':'+i))); i++; }
+    for (var k=0;k<bin.length;k++) datos[k] = bin.charCodeAt(k) ^ flujo[k];
+    try { return JSON.parse(new TextDecoder().decode(datos)); } catch(e){ return null; }
+  }
+  var OK = '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+  var NO = '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+  function falla(t, p){ res.innerHTML = '<div class="card no"><span class="ic">'+NO+'</span><div><h2>'+t+'</h2><p>'+p+'</p></div></div>'; }
+  async function verifica(cod){
+    var n = normal(cod);
+    if (n.length !== 8) return falla('Código incompleto', 'El código tiene ocho caracteres, por ejemplo 7K2F-QM9X.');
+    res.innerHTML = '<p class="ayuda">Verificando…</p>';
+    var d;
+    try { d = await abrir(cod); } catch(e){ return falla('No fue posible verificar', 'El registro de certificados no se pudo cargar. Intente de nuevo más tarde o escriba a gedmys@uptc.edu.co.'); }
+    if (!d) return falla('Código no encontrado', 'No existe un certificado con el código <b>'+esc(bonito(n))+'</b>. Revise que lo haya escrito bien; si el problema continúa, escriba a gedmys@uptc.edu.co.');
+    var f = [['Participación', d.rol + (d.puesto ? ' · ' + d.puesto : '')]];
+    if (d.detalle) f.push(['Detalle', d.detalle]);
+    if (d.grupo) f.push(['Grupo o institución', d.grupo]);
+    f.push(['Fecha del evento', d.fecha], ['Código', d.codigo]);
+    res.innerHTML = '<div class="card ok"><span class="ic">'+OK+'</span><div><div class="et">Certificado válido</div><h2>'+esc(d.nombre)+'</h2><p>'+esc(d.evento)+'</p>'+
+      '<dl>'+f.map(function(x,i){ return '<div><dt>'+x[0]+'</dt><dd'+(x[0]==='Código'?' class="cod"':'')+'>'+esc(x[1])+'</dd></div>'; }).join('')+'</dl>'+
+      '<p class="nota">Compare estos datos con los del certificado. Si no coinciden, el documento fue modificado.</p></div></div>';
+  }
+  document.getElementById('form').addEventListener('submit', function(e){
+    e.preventDefault(); var c = document.getElementById('c').value;
+    history.replaceState(null, '', '?c=' + encodeURIComponent(bonito(normal(c)))); verifica(c);
+  });
+  var q = new URLSearchParams(location.search).get('c');
+  if (q){ document.getElementById('c').value = q; verifica(q); }
+})();
+</script>
+</body>
+</html>
